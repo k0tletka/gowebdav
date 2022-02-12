@@ -1,3 +1,3 @@
-module github.com/studio-b12/gowebdav
+module github.com/k0tletka/gowebdav
 
 go 1.17
