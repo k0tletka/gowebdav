@@ -63,6 +63,11 @@ func NewClient(uri, user, pw string) *Client {
 	return &Client{FixSlash(uri), make(http.Header), nil, &http.Client{}, sync.Mutex{}, &NoAuth{user, pw}}
 }
 
+// NewClientBasicAuth creates a new instance of client with basic auth
+func NewClientBasicAuth(uri, user, pw string) *Client {
+	return &Client{FixSlash(uri), make(http.Header), nil, &http.Client{}, sync.Mutex{}, &BasicAuth{user, pw}}
+}
+
 // SetHeader lets us set arbitrary headers for a given client
 func (c *Client) SetHeader(key, value string) {
 	c.headers.Add(key, value)
